@@ -433,8 +433,10 @@ define('JS', <<<'JS'
     pvGuard.textContent = (guardChk && guardChk.checked) ? 'password required' : 'none';
     pvGuard.style.color = (guardChk && guardChk.checked) ? 'var(--sky)' : '';
     if (ttlSel) ttlSel.disabled = !!never;
-    if (daysField) daysField.hidden = !ttlSel || ttlSel.value !== '0' || never;
-    if (pwField) {
+    var useCustom = !!ttlSel && ttlSel.value === '0' && !never;
+    if (daysField) daysField.hidden = !useCustom;
+    if (daysIn) daysIn.disabled = !useCustom;
+	if (pwField) {
       var open = !!(guardChk && guardChk.checked);
       if (open && pwField.hidden) { pwField.hidden = false; $('#pw-in').focus(); }
       if (!open && !pwField.hidden) pwField.hidden = true;
