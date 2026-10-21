@@ -1172,9 +1172,14 @@ function render_admin(PDO $pdo): void
           </div>
 
           <label class="field span2" id="days-field" <?= ((string) $ttlSel === '0') ? '' : 'hidden' ?>>
-            <span class="flabel">custom lifetime</span>
-            <span class="with-btn narrow"><input type="number" name="ttl_days" id="ttl-days" min="1" max="3650"
-              value="<?= e((string) ($old['ttl_days'] ?? '45')) ?>"> <span class="unit">days</span></span>
+            <span class="flabel">custom lifetime <em>only used when “custom…” is selected</em></span>
+            <span class="with-btn narrow">
+              <input type="number" name="ttl_days" id="ttl-days" min="1" max="3650"
+                     value="<?= e((string) ($old['ttl_days'] ?? '45')) ?>"
+                     <?= ((string) $ttlSel === '0') ? '' : 'disabled' ?>>
+              <span class="unit">days</span>
+            </span>
+            <span class="fhint">If <b>Lives for</b> is set to <b>1 year</b>, this field is ignored.</span>
           </label>
 
           <div class="switches span2">
