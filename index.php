@@ -1282,9 +1282,9 @@ function render_admin(PDO $pdo): void
                   <button class="mini" data-copy="<?= e($sl) ?>" title="copy short link">copy</button>
                 </td>
                 <td data-l="destination">
-                  <a class="dest" href="<?= e($r['url']) ?>" target="_blank" rel="noopener" title="<?= e($r['url']) ?>">
+                  <!--<a class="dest" href="<?= e($r['url']) ?>" target="_blank" rel="noopener" title="<?= e($r['url']) ?>">
                     <span class="h"><?= e($host) ?></span><span class="p"><?= e(mb_strimwidth($path, 0, 46, '…')) ?></span>
-                  </a>
+                  </a> -->
                 </td>
                 <td data-l="clicks"><span class="clicks mono"><?= (int) $r['clicks'] ?></span>
                   <?= CFG['log_clicks'] ? spark_svg($L['spark'][$r['slug']] ?? []) : '' ?></td>
